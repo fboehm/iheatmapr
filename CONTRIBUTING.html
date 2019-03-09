@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MainHeatmap — MainHeatmap-class • iheatmapr</title>
+<title>Contributing to iheatmapr • iheatmapr</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -25,15 +25,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
-<link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script>
+<link href="pkgdown.css" rel="stylesheet">
+<script src="pkgdown.js"></script>
 
 
 
-<meta property="og:title" content="MainHeatmap — MainHeatmap-class" />
-
-<meta property="og:description" content="Class for storing main heatmap" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:title" content="Contributing to iheatmapr" />
 
 
 
@@ -50,7 +47,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-topic">
+    <div class="container template-title-body">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -62,7 +59,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">iheatmapr</a>
+        <a class="navbar-link" href="index.html">iheatmapr</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.8</span>
       </span>
     </div>
@@ -70,10 +67,10 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../articles/full_vignettes/iheatmapr.html">Vignette</a>
+  <a href="articles/full_vignettes/iheatmapr.html">Vignette</a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="reference/index.html">Reference</a>
 </li>
       </ul>
       
@@ -94,50 +91,47 @@
       </header>
 
 <div class="row">
-  <div class="col-md-9 contents">
+  <div class="contents col-md-9">
     <div class="page-header">
-    <h1>MainHeatmap</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ropensci/iheatmapr/blob/master/R/AllClasses.R'><code>R/AllClasses.R</code></a></small>
-    <div class="hidden name"><code>MainHeatmap-class.Rd</code></div>
+      <h1>Contributing to iheatmapr</h1>
     </div>
 
-    <div class="ref-description">
-    
-    <p>Class for storing main heatmap</p>
-    
-    </div>
+<div id="contributing-to-iheatmapr" class="section level1">
 
-        
-    <h2 class="hasAnchor" id="slots"><a class="anchor" href="#slots"></a>Slots</h2>
-
-    
-    <dl class='dl-horizontal'>
-<dt><code>xaxis</code></dt><dd><p>name of xaxis</p></dd>
-    <dt><code>yaxis</code></dt><dd><p>name of yaxis</p></dd>
-    <dt><code>data</code></dt><dd><p>matrix of heatmap values</p></dd>
-    <dt><code>colorbar</code></dt><dd><p>name of colorbar</p></dd>
-    <dt><code>show_colorbar</code></dt><dd><p>show the colorbar?</p></dd>
-</dl>
-    
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='main_heatmap.html'>main_heatmap</a></code></p></div>
-    
-
-  </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      
-      <li><a href="#slots">Slots</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-          </ul>
-
-    <h2>Author</h2>
-    <p>Alicia Schep</p>
-  </div>
+<div id="opening-issues" class="section level2">
+<h2 class="hasAnchor">
+<a href="#opening-issues" class="anchor"></a>Opening Issues</h2>
+<p>Please report bugs and contribute feature requests using the the Github Issues page. For reporting bugs, please provide a reproducible example. For feature requests, please give an example use case.</p>
 </div>
+<div id="development-guidelines" class="section level2">
+<h2 class="hasAnchor">
+<a href="#development-guidelines" class="anchor"></a>Development guidelines</h2>
+<p>New features or improvements to the existing codebase or documentation are welcomed. Please use GitHub’s pull request feature for proposing and submitting changes.</p>
+<p>New features or changes to existing features should mimic the style used for existing features. For example, if adding a new modular component that can be added onto a complex heatmap, the name of the new function should start with “add_”. Additionally, iheatmapr uses the S4 OOP system, so additional functions should generally be written as S4 methods.</p>
+<p>If adding a new feature, a test should be added for that new feature, as well as an update to the vignette to document the new feature. The website documentation should also be updated using pkgdown.</p>
+<p>Testing is done using the testthat package. A <code>expect_iheatmap</code> function is included in helper_expectation.R in the tests/testthat directory. This function wraps a few expectations. In particular, the expectation will create a saved version of the data that is used to create the plotly graphic. After being run once, the test will check that the data is the same as was previously generated. The view_reference.Rmd file will create the plots based on all the saved data created by the <code>expect_iheatmap</code> function. Building view_reference.Rmd can be used to visually inpect the expected result of each test.</p>
+</div>
+<div id="scope" class="section level2">
+<h2 class="hasAnchor">
+<a href="#scope" class="anchor"></a>Scope</h2>
+<p>iheatmapr is intended to be a general purpose package for creating complex, interactive heatmaps. The modular building blocks can be adapted to make domain-specific types of heatmaps, but such specialized adaptations are a better fit for complementary, add-on packages that build upon iheatmapr rather than as components of iheatmapr itself.</p>
+</div>
+<div id="questions-about-these-guidelines" class="section level2">
+<h2 class="hasAnchor">
+<a href="#questions-about-these-guidelines" class="anchor"></a>Questions about these guidelines?</h2>
+<p>Please use the Issues page for questions about these guidelines. You can also submit a preliminary pull request with questions.</p>
+</div>
+<div id="code-of-conduct" class="section level2">
+<h2 class="hasAnchor">
+<a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h2>
+<p>When contributing to iheatmapr, you are expected to follow the <a href="https://github.com/AliciaSchep/iheatmapr/blob/master/CONDUCT.md">code of conduct</a>.</p>
+</div>
+</div>
+
+  </div>
+
+</div>
+
 
       <footer>
       <div class="copyright">
